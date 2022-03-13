@@ -5,10 +5,7 @@
         <span class="d-inline d-md-none">Report</span>
         <span class="d-none d-md-inline">Error report</span>
       </h1>
-      <a
-        href="https://www.getsiteinspector.com/"
-        target="_blank"
-      > SiteInspector v{{ version }} </a>
+      SiteInspector
     </div>
     <Website
       :key="website.id"

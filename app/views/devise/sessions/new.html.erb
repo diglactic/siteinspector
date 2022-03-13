@@ -1,7 +1,7 @@
 <div class="container pt-3" style="max-width: 650px">
   <div class="text-center">
     <h1 class="py-5">
-      SiteInspector 👋
+      Sign In to SiteInspector
     </h1>
   </div>
   <div class="mb-2 ivu-card ivu-card-bordered">
@@ -11,7 +11,7 @@
           <%= f.label :email, class: 'ivu-form-item-label' %>
           <div class="ivu-form-item-content">
             <div class="ivu-input-wrapper ivu-input-wrapper-large ivu-input-type-email">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com", class: "ivu-input ivu-input-large ivu-input-with-prefix" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "ivu-input ivu-input-large ivu-input-with-prefix" %>
               <span class="ivu-input-prefix"><i class="ion ion-md-mail"></i></span>
             </div>
           </div>
@@ -20,7 +20,7 @@
           <%= f.label :password, class: 'ivu-form-item-label' %>
           <div class="ivu-form-item-content">
             <div class="ivu-input-wrapper ivu-input-wrapper-large ivu-input-type-password">
-              <%= f.password_field :password, autocomplete: "current-password", type: "password", placeholder:"**********", class: "ivu-input ivu-input-large ivu-input-with-prefix" %>
+              <%= f.password_field :password, autocomplete: "current-password", type: "password", class: "ivu-input ivu-input-large ivu-input-with-prefix" %>
               <span class="ivu-input-prefix"><i class="ion ion-md-key"></i></span>
             </div>
           </div>

@@ -2,7 +2,7 @@
   <div class="setup-container">
     <div class="text-center">
       <h1 class="py-5">
-        SiteInspector Setup 👋
+        Setup SiteInspector
       </h1>
     </div>
     <Card class="mb-2">

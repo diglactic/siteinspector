@@ -14,11 +14,6 @@
             <span class="h2">
               SiteInspector
             </span>
-            <a
-              href="https://www.getsiteinspector.com/"
-              target="_blank"
-              style="font-size: 12px"
-            > v{{ version }} </a>
           </div>
           <div
             class="col-10 col-lg-6 d-flex justify-content-lg-center"
