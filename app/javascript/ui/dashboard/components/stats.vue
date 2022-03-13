@@ -55,7 +55,7 @@
         {{ stats.custom_rules }}
       </p>
       <p class="h3">
-        Custom checks
+        Custom rules
       </p>
       <IButton
         :to="{ name: 'custom_checks' }"

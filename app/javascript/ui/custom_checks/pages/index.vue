@@ -2,7 +2,7 @@
   <div>
     <div class="d-flex justify-content-between align-items-end">
       <h1>
-        Custom checks
+        Custom Rules
       </h1>
       <div>
         <IButton
@@ -13,7 +13,7 @@
           ghost
           @click="openAddRuleModal"
         >
-          <span class="d-none d-md-inline">Add Rule</span>
+          <span class="d-none d-md-inline">Add Custom Rule</span>
         </IButton>
       </div>
     </div>
@@ -44,7 +44,7 @@
       type="dashed"
       @click="openAddRuleModal"
     >
-      Add Rule
+      Add Custom Rule
     </IButton>
   </div>
 </template>
@@ -95,7 +95,7 @@ export default {
           this.loadRules()
         }
       }, {
-        title: 'Add rule',
+        title: 'Add Custom Rule',
         closable: true
       })
     }

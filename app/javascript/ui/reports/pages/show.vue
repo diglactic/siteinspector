@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between align-items-end">
       <h1>
         <span class="d-inline d-md-none">Report</span>
-        <span class="d-none d-md-inline">Error report</span>
+        <span class="d-none d-md-inline">Site Report</span>
       </h1>
       <div>
         <IButton

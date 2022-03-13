@@ -14,7 +14,7 @@ RSpec.describe 'Dashboard' do
     end
 
     it 'creates a new rule' do
-      click_on 'Add Rule', class: 'ivu-btn-long'
+      click_on 'Add Custom Rule', class: 'ivu-btn-long'
 
       within '.ivu-modal-body' do
         find('.ivu-select').click

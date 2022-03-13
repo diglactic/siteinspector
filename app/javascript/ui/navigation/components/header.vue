@@ -55,7 +55,7 @@
                   type="md-compass"
                   :style="'width: 16px'"
                 />
-                Add Rule
+                Add Custom Rule
               </MenuItem>
               <MenuItem name="add_user">
                 <Icon

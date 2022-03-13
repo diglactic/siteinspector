@@ -37,7 +37,7 @@
       v-if="customRuleResults.length"
       class="mt-3"
     >
-      <Divider>Custom checks</Divider>
+      <Divider>Custom rules</Divider>
       <Rule
         v-for="result in page.custom_rule_results"
         :key="result.id"

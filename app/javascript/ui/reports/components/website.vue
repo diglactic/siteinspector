@@ -45,7 +45,7 @@
             </div>
             <div class="col-6 col-lg-3 text-center mt-3 mt-lg-0">
               <p>
-                Custom checks:
+                Custom rules:
                 <b>{{ website.stats.custom_rules }}</b>
               </p>
             </div>

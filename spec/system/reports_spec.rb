@@ -24,7 +24,7 @@ RSpec.describe 'Dashboard' do
       expect(page).to have_content 'Spelling errors: 1'
       expect(page).to have_content 'Grammatical errors: 0'
       expect(page).to have_content 'Broken links: 1'
-      expect(page).to have_content 'Custom checks: 1'
+      expect(page).to have_content 'Custom rules: 1'
 
       expect(page).to have_link broken_link.effective_url
       expect(page).to have_content website_page_error.context
