@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '3.0.0'
+ruby '3.1.1'
 
 gem 'addressable'
 gem 'bootsnap', require: false
