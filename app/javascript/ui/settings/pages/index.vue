@@ -35,7 +35,7 @@
     <a
       href="/sidekiq/dynamic-queues"
       target="_blank"
-      class="mt-3 bg-white ivu-btn ivu-btn-primary ivu-btn-long ivu-btn-large ivu-btn-ghost"
+      class="mt-3 bg-white ivu-btn ivu-btn-warning ivu-btn-long ivu-btn-large ivu-btn-ghost"
     >
       <Icon type="md-log-in" />
       Enter Sidekiq UI
@@ -45,7 +45,7 @@
         target="_blank"
         class="mt-3 bg-white ivu-btn ivu-btn-primary ivu-btn-long ivu-btn-large ivu-btn-ghost"
     >
-      <Icon type="md-logo-github" />
+      <Icon type="logo-github" />
       Credits
     </a>
     <IButton
