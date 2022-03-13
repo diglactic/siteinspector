@@ -34,7 +34,7 @@
               name="custom_checks"
               :to="{ name: 'custom_checks' }"
             >
-              <span class="item-text">Custom <span class="d-none d-lg-inline">checks</span></span>
+              <span class="item-text">Custom Rules</span>
             </MenuItem>
           </div>
           <div

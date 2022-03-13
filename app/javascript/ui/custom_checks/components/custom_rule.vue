@@ -143,7 +143,7 @@ export default {
         closable: true,
         onOk: () => {
           api.delete(`custom_rules/${this.rule.id}`).then(() => {
-            Message.info('Custom check rule has been removed')
+            Message.info('Custom rule has been removed')
 
             this.$emit('update')
           }).catch((error) => {
@@ -159,7 +159,7 @@ export default {
         onSuccess: (rule) => {
           Modal.remove()
 
-          Message.info('Custom check rule has been updated')
+          Message.info('Custom rule has been updated')
 
           this.$emit('update', rule)
         }

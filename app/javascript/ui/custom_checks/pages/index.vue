@@ -90,7 +90,7 @@ export default {
       Modal.open(CustomRuleForm, {
         onSuccess: () => {
           Modal.remove()
-          Message.info('Custom check rule has been added')
+          Message.info('Custom rule has been added')
 
           this.loadRules()
         }
