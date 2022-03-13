@@ -32,18 +32,6 @@
         <ContentPlaceholdersText :lines="4" />
       </ContentPlaceholders>
     </Card>
-    <h1 id="subscribe">
-      Developer newsletters
-    </h1>
-    <Card
-      class="my-3"
-    >
-      <SubscribeForm
-        :submit-text="'Subscribe'"
-        :email="currentUser.email"
-        @success="subscribeSuccesMessage"
-      />
-    </Card>
     <a
       href="/sidekiq/dynamic-queues"
       target="_blank"
@@ -70,7 +58,6 @@
 <script>
 import api from 'ui/api'
 import UserForm from 'ui/users/components/form'
-import SubscribeForm from 'ui/settings/components/subscribe_form'
 import UsersList from 'ui/users/components/list'
 import { Message } from 'view3/src/plugins/dynamic-components'
 
@@ -78,8 +65,7 @@ export default {
   name: 'SettingsIndex',
   components: {
     UserForm,
-    UsersList,
-    SubscribeForm
+    UsersList
   },
   data () {
     return {
