@@ -40,6 +40,14 @@
       <Icon type="md-log-in" />
       Enter Sidekiq UI
     </a>
+    <a
+        href="https://github.com/siteinspector/siteinspector"
+        target="_blank"
+        class="mt-3 bg-white ivu-btn ivu-btn-primary ivu-btn-long ivu-btn-large ivu-btn-ghost"
+    >
+      <Icon type="md-logo-github" />
+      Credits
+    </a>
     <IButton
       role="signOutBtn"
       size="large"
