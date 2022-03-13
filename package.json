@@ -10,7 +10,7 @@
     "kitsu-core": "^8.1.1",
     "qs": "^6.9.3",
     "sass": "^1.49.9",
-    "sass-loader": "^12.6.0",
+    "sass-loader": "^10.0.0",
     "view3": "https://github.com/omohokcoj/view3",
     "vue": "^3.0.0",
     "vue-content-placeholders": "^0.2.1",
