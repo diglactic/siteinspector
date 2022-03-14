@@ -2,8 +2,10 @@
 
 Fork of https://github.com/siteinspector/siteinspector.
 
+## Setup
+
 ```shell
-# Setup
+# Install
 bundle install
 yarn install
 
@@ -18,6 +20,28 @@ rake assets:precompile
 
 # Run migrations on Heroku, if needed
 rake db:migrate
+```
+
+## Config
+
+```dotenv
+DATABASE_URL=postgresql://user:password@url/database
+LANG=en_US.UTF-8
+RACK_ENV=production
+RAILS_ENV=production
+RAILS_LOG_TO_STDOUT=enabled
+RAILS_SERVE_STATIC_FILE=enabled
+REDIS_TLS_URL=rediss://:username@url:port
+REDIS_URL=redis://:username@url:port
+SECRET_KEY_BASE=XXX
+```
+
+## Migrations
+
+_Note: database role requires `CREATE ON DATABASE` permission._
+
+```shell
+rails db:migrate
 ```
 
 ## License
