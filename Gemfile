@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '3.1.1'
+ruby '3.1.0'
 
 gem 'addressable'
 gem 'bootsnap', require: false
@@ -21,20 +21,18 @@ gem 'rake'
 gem 'rchardet'
 gem 'redis'
 gem 'ruby-spellchecker'
+gem 'shakapacker'
 gem 'sidekiq', require: 'sidekiq/web'
 gem 'typhoeus'
-gem 'webpacker'
 
 group :development do
   gem 'annotate', require: false
   gem 'brakeman', require: false
+  gem 'listen'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen'
   gem 'web-console'
   gem 'yard', require: false
 end
