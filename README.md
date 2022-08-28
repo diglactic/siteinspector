@@ -104,3 +104,11 @@ GRANT CREATE ON SCHEMA public TO siteinspector;
 -- Avoid needing to assign superuser perms to user
 CREATE EXTENSION citext;
 ```
+
+## Set Redis Eviction Policy
+```shell
+sudo apt install redis-tools
+
+redis-cli -h host -p 6379
+> set maxmemory-policy noeviction
+```
