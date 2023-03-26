@@ -3,6 +3,7 @@
 Fork of https://github.com/siteinspector/siteinspector.
 
 ## Setup
+[![Screenshot](https://www.getsiteinspector.com/packs/media/landing/images/si8-e5152df8eadeeabe91ef6f1d63170f9d.png)](https://www.getsiteinspector.com)
 
 ```shell
 # Install
