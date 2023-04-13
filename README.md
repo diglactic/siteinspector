@@ -20,22 +20,8 @@ bundle exec rubocop -A
 # Ensure assets can compile
 rake assets:precompile  
 
-# Run migrations on Heroku, if needed
+# Run migrations, if needed
 rake db:migrate
-```
-
-## Environment
-
-```dotenv
-DATABASE_URL=postgresql://user:password@url/database
-LANG=en_US.UTF-8
-RACK_ENV=production
-RAILS_ENV=production
-RAILS_LOG_TO_STDOUT=enabled
-RAILS_SERVE_STATIC_FILE=enabled
-REDIS_TLS_URL=rediss://:username@url:port
-REDIS_URL=redis://:username@url:port
-SECRET_KEY_BASE=XXX
 ```
 
 ## Migrations
@@ -48,7 +34,7 @@ rails db:migrate
 
 ## Server
 
-Note: all environment variables must be passed manually. `.env` is only used for deploys at this point.
+Note: all environment variables must be passed manually. `.env` is not automatically loaded anywhere.
 
 ```shell
 DATABASE_URL="postgresql://..." LANG="en_US.UTF-8"... bundle exec puma -p 5000 -C ./config/puma.rb
@@ -91,7 +77,7 @@ location / {
 ```shell
 bundle install
 yarn install
-rake assets:precompile  
+rake assets:precompile
 rake db:migrate
 supervisorctl restart all
 ```
