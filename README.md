@@ -1,17 +1,18 @@
 # SiteInspector
 
-Fork of https://github.com/siteinspector/siteinspector.
+Fork of https://github.com/siteinspector/siteinspector for use on a standard Ubuntu server with some [minor
+customizations](https://github.com/siteinspector/siteinspector/compare/master...diglactic:siteinspector:main).
+
+> ⚠️ 2023-04-13: Cloudflare CDN can cause a blank screen to occur.
 
 ## Setup
-
-[![Screenshot](https://www.getsiteinspector.com/packs/media/landing/images/si8-e5152df8eadeeabe91ef6f1d63170f9d.png)](https://www.getsiteinspector.com)
 
 ```shell
 # Install
 bundle install
 yarn install
 
-# Issues with Postgres Gem on M1
+# 2022-03-13: Issues with Postgres Gem on M1
 # @see https://stackoverflow.com/a/70316977/2535504
 
 # Lint and fix *.rb files
@@ -24,6 +25,24 @@ rake assets:precompile
 rake db:migrate
 ```
 
+## Environment Variables
+
+```dotenv
+DATABASE_URL=postgresql://user:password@url/database
+LANG=en_US.UTF-8
+RACK_ENV=production
+RAILS_ENV=production
+RAILS_LOG_TO_STDOUT=enabled
+RAILS_SERVE_STATIC_FILE=enabled
+SECRET_KEY_BASE=XXX
+
+# Default Redis database is `0`
+REDIS_URL=redis://user:password@url:port/database
+
+# May need to specify the full path for commands
+PATH=/usr/share/rvm/gems/ruby-3.1.0/bin:/usr/share/rvm/gems/ruby-3.1.0@global/bin:/usr/share/rvm/rubies/ruby-3.1.0/bin:/usr/share/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/siteinspector/.rvm/bin
+```
+
 ## Migrations
 
 _Note: database role requires `CREATE ON DATABASE` permission._
@@ -32,9 +51,7 @@ _Note: database role requires `CREATE ON DATABASE` permission._
 rails db:migrate
 ```
 
-## Server
-
-Note: all environment variables must be passed manually. `.env` is not automatically loaded anywhere.
+## Local Server
 
 ```shell
 DATABASE_URL="postgresql://..." LANG="en_US.UTF-8"... bundle exec puma -p 5000 -C ./config/puma.rb
@@ -43,11 +60,15 @@ DATABASE_URL="postgresql://..." LANG="en_US.UTF-8"... bundle exec sidekiq -c 10 
 
 ## Ubuntu Setup Notes
 
-### Configuring Ruby
+### Requirements
 
-[Install `rvm`](https://github.com/rvm/ubuntu_rvm).
+- Ruby (use [`rvm`](https://github.com/rvm/ubuntu_rvm))
+- NGINX
+- Redis
+- PostgreSQL
+- Supervisor
 
-### Generating `supervisord` config with Foreman
+### Generating initial `supervisord` config with Foreman
 
 ```shell
 gem install foreman
@@ -58,7 +79,10 @@ foreman export supervisord ./
 
 ```ini
 [supervisord]
-environment = PATH="/usr/share/rvm/gems/ruby-3.1.0/bin:/usr/share/rvm/gems/ruby-3.1.0@global/bin:/usr/share/rvm/rubies/ruby-3.1.0/bin:/usr/share/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/siteinspector/.rvm/bin",DATABASE_URL="postgresql://...",LANG="en_US.UTF-8"...
+environment=PATH="/usr/share/rvm/gems/ruby-3.1.0/bin:/usr/share/rvm/gems/ruby-3.1.0@global/bin:/usr/share/rvm/rubies/ruby-3.1.0/bin:/usr/share/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/siteinspector/.rvm/bin",DATABASE_URL="postgresql://...",LANG="en_US.UTF-8"...
+directory=
+command=
+...
 ```
 
 ### Proxying via NGINX
@@ -70,6 +94,10 @@ location / {
     proxy_set_header Host $http_host;
     proxy_redirect off;
 }
+
+# Remove the following lines, if listed to avoid a 404 on both
+# location = /favicon.ico { access_log off; log_not_found off; }
+# location = /robots.txt  { access_log off; log_not_found off; }
 ```
 
 ### Deploy Script
@@ -78,7 +106,10 @@ location / {
 bundle install
 yarn install
 rake assets:precompile
+
+# Will require `DATABASE_URL` and possibly `PATH` environment variables
 rake db:migrate
+
 supervisorctl restart all
 ```
 
@@ -99,12 +130,14 @@ GRANT CREATE ON SCHEMA public TO siteinspector;
 CREATE EXTENSION citext;
 ```
 
-## Set Redis Eviction Policy
+### Set Redis Eviction Policy
+
+_See [https://github.com/sidekiq/sidekiq/wiki/Using-Redis#memory](https://github.com/sidekiq/sidekiq/wiki/Using-Redis#memory)._
 
 ```shell
 sudo apt install redis-tools
 
-redis-cli -h host -p 6379
+redis-cli -h <host> -p 6379
 > set maxmemory-policy noeviction
 ```
 
