@@ -3,8 +3,6 @@
 Fork of https://github.com/siteinspector/siteinspector for use on a standard Ubuntu server with some [minor
 customizations](https://github.com/siteinspector/siteinspector/compare/master...diglactic:siteinspector:main).
 
-> ⚠️ 2023-04-13: Cloudflare CDN can cause a blank screen to occur.
-
 ## Setup
 
 ```shell
